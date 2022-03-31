@@ -49,7 +49,7 @@ export default function Editcustomer(props){
                 <TextField
                         autoFocus
                         margin="dense"
-                        name="fistname"
+                        name="firstname"
                         value={customer.firstname}
                         label="First name"
                         onChange={e => handleInputChange(e)}

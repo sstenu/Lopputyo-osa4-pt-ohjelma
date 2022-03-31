@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import Button from '@material-ui/core/Button';
+import Edittraining from './Edittraining';
+import Addtraining from './Addtraining';
 import {
     BrowserRouter,
     Route,
@@ -27,18 +29,6 @@ export default function Traininglist (){
         .then(res => fetchData())
         .catch(err => console.error(err))
        }
-   }
-
-   const saveTraining = (training) => {
-        fetch('https://customerrest.herokuapp.com/api/trainings', {
-            method: 'POST', 
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(training)
-        })
-        .then(res => fetchData())
-        .catch(err => console.error(err))
    }
 
    const updateTraining = (training, link) => {
@@ -80,7 +70,20 @@ export default function Traininglist (){
                 .then(data => setNewValue(data.firstname))
                 return (newValue)
             }
-       }
+       },
+       {
+            sortable: false,
+            filterable: false,
+            width: 100,
+            Cell: row => <Edittraining updateTraining={updateTraining} training={row.original}/>
+        },
+        {
+            sortable: false,
+            filterable: false,
+            width: 100,
+            accessor: 'links[0].href',
+            Cell: row => <Button size="small" color="secondary" onClick={() => deleteTraining(row.value)}>Delete</Button>
+        }
    ]
     return (
         <div style={{margin: 50}}>

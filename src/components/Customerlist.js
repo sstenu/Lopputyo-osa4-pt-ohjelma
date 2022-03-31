@@ -3,6 +3,7 @@ import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import Button from '@material-ui/core/Button';
 import Addcustomer from './Addcustomer';
+import Addtraining from './Addtraining';
 import Editcustomer from './Editcustomer';
 import {
     BrowserRouter,
@@ -42,6 +43,19 @@ export default function Customerlist (){
         .then(res => fetchData())
         .catch(err => console.error(err))
    }
+
+   const saveTraining = (training) => {
+    fetch('https://customerrest.herokuapp.com/api/trainings', {
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(training)
+    })
+    .then(res => fetchData())
+    .catch(err => console.error(err))
+}
+
 
    const updateCustomer = (customer, link) => {
         fetch(link, {
@@ -87,13 +101,19 @@ export default function Customerlist (){
             sortable: false,
             filterable: false,
             width: 100,
+            Cell: row => <Addtraining saveTraining={saveTraining} customer={row.original}/>
+       },
+       {
+            sortable: false,
+            filterable: false,
+            width: 100,
             Cell: row => <Editcustomer updateCustomer={updateCustomer} customer={row.original}/>
        },
        {
            sortable: false,
            filterable: false,
            width: 100,
-           accessor: 'links.[0].href',
+           accessor: 'links[0].href',
            Cell: row => <Button size="small" color="secondary" onClick={() => deleteCustomer(row.value)}>Delete</Button>
        }
    ]
