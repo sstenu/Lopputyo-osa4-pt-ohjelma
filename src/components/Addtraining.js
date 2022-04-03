@@ -26,7 +26,7 @@ export default function Addtraining(props){
     }
 
     const addTraining = () => {
-        props.saveTraining(training),
+        props.saveTraining(training);
         handleClose();
     }
 

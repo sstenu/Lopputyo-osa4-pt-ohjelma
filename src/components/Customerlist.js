@@ -5,12 +5,9 @@ import Button from '@material-ui/core/Button';
 import Addcustomer from './Addcustomer';
 import Addtraining from './Addtraining';
 import Editcustomer from './Editcustomer';
-import {
-    BrowserRouter,
-    Route,
-    Routes,
-    Link
-} from 'react-router-dom';
+import {CSVLink} from 'react-csv';
+
+
 
 export default function Customerlist (){
     const [customers, setCustomers] = useState([]);
@@ -120,6 +117,7 @@ export default function Customerlist (){
     return (
         <div style={{margin: 50}}>
             <Addcustomer saveCustomer={saveCustomer}/>
+            <CSVLink data={customers} filename="customers.csv">Download customers</CSVLink>
             <ReactTable filterable={true} data={customers} columns={columns} />
         </div>
     );

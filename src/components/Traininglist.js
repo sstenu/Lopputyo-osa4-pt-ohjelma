@@ -4,12 +4,8 @@ import 'react-table/react-table.css';
 import Button from '@material-ui/core/Button';
 import Edittraining from './Edittraining';
 import Addtraining from './Addtraining';
-import {
-    BrowserRouter,
-    Route,
-    Routes,
-    Link
-} from 'react-router-dom';
+import Calender from './Calender';
+
 
 export default function Traininglist (){
     const [trainings, setTrainings] = useState([]);

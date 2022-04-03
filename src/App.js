@@ -11,6 +11,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import Calender from './components/Calender';
 
 function App() {
   return (
@@ -26,9 +27,11 @@ function App() {
           <BrowserRouter>
             <Link style={{margin: 50}} to="/">Customers</Link>{' '}
             <Link style={{margin: 50}} to="/components/Traininglist">Trainings</Link>{' '}
+            <Link style={{margin: 50}} to="/components/Calender">Calendar</Link>{' '}
             <Routes>
               <Route exact path="/" element={<Customerlist />} />
               <Route path="/components/Traininglist" element={<Traininglist />} />
+              <Route path="/components/Calender" element={<Calender />} />
             </Routes>
           </BrowserRouter>
     </div>
