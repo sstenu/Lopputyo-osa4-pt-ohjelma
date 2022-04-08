@@ -12,6 +12,7 @@ import {
   Link
 } from 'react-router-dom';
 import Calender from './components/Calender';
+import Statistics from './components/Statistics';
 
 function App() {
   return (
@@ -28,10 +29,12 @@ function App() {
             <Link style={{margin: 50}} to="/">Customers</Link>{' '}
             <Link style={{margin: 50}} to="/components/Traininglist">Trainings</Link>{' '}
             <Link style={{margin: 50}} to="/components/Calender">Calendar</Link>{' '}
+            <Link style={{margin: 50}} to="/components/Statistics">Statistics</Link>{' '}
             <Routes>
               <Route exact path="/" element={<Customerlist />} />
               <Route path="/components/Traininglist" element={<Traininglist />} />
               <Route path="/components/Calender" element={<Calender />} />
+              <Route path="/components/Statistics" element={<Statistics/>} />
             </Routes>
           </BrowserRouter>
     </div>

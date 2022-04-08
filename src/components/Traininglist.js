@@ -4,7 +4,6 @@ import 'react-table/react-table.css';
 import Button from '@material-ui/core/Button';
 import Edittraining from './Edittraining';
 import Addtraining from './Addtraining';
-import Calender from './Calender';
 
 
 export default function Traininglist (){
@@ -54,7 +53,7 @@ export default function Traininglist (){
        },
        {
            Header: 'Activity',
-           accessor: 'activity'
+           accessor: 'activity',
        },
        {
            Header: 'Customer',

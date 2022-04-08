@@ -8,7 +8,6 @@ import Editcustomer from './Editcustomer';
 import {CSVLink} from 'react-csv';
 
 
-
 export default function Customerlist (){
     const [customers, setCustomers] = useState([]);
 
